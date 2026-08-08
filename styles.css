@@ -158,9 +158,11 @@ body {
     background-color: var(--fondo-secundario);
     width: 90%;
     max-width: 800px; /* Ancho máximo de la ventana modal */
+    max-height: 85vh; /* 👈 AGREGA ESTO: limita el alto al 85% de la pantalla */
+    overflow-y: auto; /* 👈 AGREGA ESTO: permite scroll interno si el texto es largo */
     border-radius: 15px;
     display: flex; /* Para poner la imagen a un lado y el texto al otro */
-    padding: 30px;
+    padding: 20px;
     position: relative; /* Necesario para posicionar el botón de cerrar de forma absoluta dentro de este cuadro */
     border: 1px solid var(--acento-cian);
 }
@@ -215,7 +217,14 @@ body {
 /* --- RESPONSIVE DESIGN (Para celulares) --- */
 /* Esta regla se activa SOLO cuando la pantalla es menor a 768px (teléfonos y tablets pequeñas) */
 @media (max-width: 768px) {
-    .modal-contenido { flex-direction: column; /* Apila la imagen arriba y el texto abajo */ }
+    .modal-contenido { flex-direction: column; }
     .modal-galeria, .modal-info { width: 100%; padding-right: 0; }
-    .modal-galeria { margin-bottom: 20px; }
+    .modal-galeria { 
+        margin-bottom: 20px; 
+        max-height: 250px; /* 👈 AGREGA ESTO para recortar la altura del contenedor */
+    }
+    #modal-img-principal {
+        max-height: 200px; /* 👈 AGREGA ESTO para que la foto no sea gigante en móvil */
+        object-fit: contain; /* 👈 AGREGA ESTO para que la foto no se deforme */
+    }
 }
