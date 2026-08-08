@@ -1,0 +1,60 @@
+<!DOCTYPE html> <html lang="es"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Megabyte Pi | Accesorios Tecnológicos</title> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor-header">
+            <h1 class="logo">Megabyte Pi</h1> <nav class="navegacion"> <a href="#inicio">Inicio</a>
+                <a href="#productos">Catálogo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-contenido">
+                <h2>Potencia tu Setup</h2>
+                <p>Accesorios tecnológicos de alta fidelidad y rendimiento para verdaderos entusiastas.</p>
+            </div>
+        </section>
+
+        <section id="productos" class="seccion-productos">
+            <h2 class="titulo-seccion">Nuestro Inventario</h2>
+            <div id="grid-productos" class="grid">
+                </div>
+        </section>
+    </main>
+
+    <div id="modal-producto" class="modal oculto">
+        <div class="modal-contenido">
+            <button id="btn-cerrar-modal" class="btn-cerrar"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="modal-galeria">
+                <img id="modal-img-principal" src="" alt="Imagen principal">
+                <div id="modal-miniaturas" class="miniaturas-contenedor"></div>
+            </div>
+
+            <div class="modal-info">
+                <h3 id="modal-titulo">Nombre del Producto</h3>
+                <p id="modal-precio" class="precio-destacado">$00.00</p>
+                <p id="modal-descripcion">Descripción detallada del producto...</p>
+                
+                <div class="botones-compra">
+                    <a href="https://wa.me/50376135416" target="_blank" class="btn whatsapp">
+                      <i class="fa-brands fa-whatsapp"></i> Comprar por WhatsApp
+                    </a>
+                    <a href="https://instagram.com/megabytepisv" target="_blank" class="btn instagram">
+                      <i class="fa-brands fa-instagram"></i> Comprar por Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

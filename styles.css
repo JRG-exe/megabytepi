@@ -1,0 +1,221 @@
+/* --- VARIABLES GLOBALES --- */
+/* Las variables en CSS nos permiten guardar colores y usarlos muchas veces. Si un día quieres cambiar el azul, lo cambias aquí y se actualiza en toda la página. */
+:root {
+    --fondo-principal: #121212; /* Gris casi negro, muy elegante para temas oscuros */
+    --fondo-secundario: #0B192C; /* Azul marino profundo para las tarjetas y el header */
+    --acento-cian: #00E5FF; /* Cian brillante para detalles tecnológicos y precios */
+    --texto-claro: #F5F5F5; /* Blanco humo para que el texto no lastime la vista en fondos oscuros */
+    --boton-wa: #25D366; /* Verde oficial de WhatsApp */
+    --gradiente-ig: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Degradado de Instagram */
+}
+
+/* --- RESETEO BÁSICO --- */
+/* El asterisco (*) selecciona TODOS los elementos de la página */
+* {
+    margin: 0; /* Quitamos márgenes por defecto del navegador */
+    padding: 0; /* Quitamos rellenos por defecto */
+    box-sizing: border-box; /* Hace que el padding y los bordes no aumenten el tamaño total de los elementos */
+    font-family: 'Poppins', sans-serif; /* Aplicamos nuestra fuente a todo */
+}
+
+body {
+    background-color: var(--fondo-principal); /* Aplicamos el gris oscuro al fondo */
+    color: var(--texto-claro); /* Texto en color claro */
+    line-height: 1.6; /* Espaciado entre líneas para mejor lectura */
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+.header {
+    background-color: var(--fondo-secundario);
+    padding: 20px 0;
+    position: sticky; /* Hace que el menú se quede pegado arriba al hacer scroll */
+    top: 0;
+    z-index: 100; /* Asegura que el header siempre esté por encima de otros elementos */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave hacia abajo */
+}
+
+.contenedor-header {
+    max-width: 1200px; /* Ancho máximo para que no se estire infinito en monitores grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: flex; /* Activa Flexbox para alinear elementos fácilmente */
+    justify-content: space-between; /* Empuja el logo a la izquierda y el menú a la derecha */
+    align-items: center; /* Centra verticalmente logo y menú */
+    padding: 0 20px;
+}
+
+.logo {
+    color: var(--acento-cian); /* Le damos nuestro color tech al logo */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navegacion a {
+    color: var(--texto-claro);
+    text-decoration: none; /* Quita el subrayado feo de los enlaces */
+    margin-left: 20px;
+    font-size: 16px;
+    transition: color 0.3s; /* Animación suave al cambiar de color */
+}
+
+.navegacion a:hover {
+    color: var(--acento-cian); /* Al pasar el ratón, el texto se vuelve cian */
+}
+
+/* --- SECCIÓN HERO (Banner) --- */
+.hero {
+    background: linear-gradient(to right, rgba(11, 25, 44, 0.9), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; /* Fondo oscuro con una imagen de tecnología de fondo */
+    height: 40vh; /* Ocupa el 40% del alto de la pantalla */
+    display: flex; /* Para centrar el contenido internamente */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 40px;
+    color: var(--acento-cian);
+    margin-bottom: 10px;
+}
+
+/* --- GRID DE PRODUCTOS --- */
+.seccion-productos {
+    max-width: 1200px;
+    margin: 40px auto; /* Centrado con margen arriba y abajo */
+    padding: 0 20px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--acento-cian);
+    display: inline-block; /* Hace que el borde de abajo solo ocupe el ancho del texto */
+    padding-bottom: 10px;
+}
+
+.grid {
+    display: grid; /* Activamos CSS Grid, ideal para catálogos */
+    /* La siguiente línea es magia pura: crea columnas que se adaptan automáticamente al tamaño de la pantalla sin necesidad de Media Queries extra. Cada tarjeta medirá mínimo 280px. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; /* Espacio entre tarjetas */
+}
+
+/* --- TARJETAS DE PRODUCTO --- */
+.tarjeta {
+    background-color: var(--fondo-secundario);
+    border-radius: 12px; /* Bordes redondeados */
+    overflow: hidden; /* Corta cualquier cosa que sobresalga de los bordes redondeados (como la imagen) */
+    cursor: pointer; /* Cambia el cursor a una manito indicando que es clickeable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Prepara los elementos para una animación suave */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Un borde súper sutil */
+}
+
+/* El efecto HOVER: Lo que pasa cuando el ratón está encima de la tarjeta */
+.tarjeta:hover {
+    transform: translateY(-8px); /* Eleva la tarjeta 8 píxeles hacia arriba */
+    box-shadow: 0 10px 20px rgba(0, 229, 255, 0.15); /* Le pone un resplandor cian por debajo */
+}
+
+.tarjeta img {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: 250px;
+    object-fit: cover; /* Recorta la imagen para que no se deforme si las proporciones no cuadran */
+}
+
+.tarjeta-info {
+    padding: 20px;
+}
+
+.tarjeta h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tarjeta .precio {
+    color: var(--acento-cian);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* --- VENTANA MODAL --- */
+.modal {
+    position: fixed; /* Lo clava en la pantalla aunque hagas scroll */
+    top: 0; left: 0; width: 100%; height: 100%; /* Ocupa toda la pantalla */
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semi-transparente para oscurecer la web atrás */
+    display: flex; justify-content: center; align-items: center; /* Centra el cuadro blanco en medio de la pantalla */
+    z-index: 1000; /* Lo pone por encima de todo lo demás en la página */
+    opacity: 1; 
+    transition: opacity 0.3s ease; /* Animación para aparecer/desaparecer suavemente */
+}
+
+/* Clase para ocultar la modal (se la pondremos y quitaremos con JavaScript) */
+.modal.oculto {
+    opacity: 0; /* La hace invisible */
+    pointer-events: none; /* Evita que le puedas hacer click aunque esté invisible */
+}
+
+.modal-contenido {
+    background-color: var(--fondo-secundario);
+    width: 90%;
+    max-width: 800px; /* Ancho máximo de la ventana modal */
+    border-radius: 15px;
+    display: flex; /* Para poner la imagen a un lado y el texto al otro */
+    padding: 30px;
+    position: relative; /* Necesario para posicionar el botón de cerrar de forma absoluta dentro de este cuadro */
+    border: 1px solid var(--acento-cian);
+}
+
+.btn-cerrar {
+    position: absolute; /* Lo sacamos del flujo normal */
+    top: 15px; right: 15px; /* Lo clavamos en la esquina superior derecha */
+    background: transparent;
+    border: none;
+    color: var(--texto-claro);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-cerrar:hover { color: var(--acento-cian); }
+
+.modal-galeria { width: 50%; padding-right: 30px; }
+.modal-info { width: 50%; display: flex; flex-direction: column; justify-content: center; }
+
+#modal-img-principal {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    aspect-ratio: 1/1; /* Mantiene la imagen en proporción cuadrada */
+    object-fit: cover;
+}
+
+.miniaturas-contenedor { display: flex; gap: 10px; }
+.miniaturas-contenedor img {
+    width: 60px; height: 60px;
+    border-radius: 5px; cursor: pointer; border: 2px solid transparent;
+    transition: border 0.3s;
+}
+.miniaturas-contenedor img:hover { border: 2px solid var(--acento-cian); }
+
+#modal-titulo { font-size: 28px; margin-bottom: 10px; }
+.precio-destacado { font-size: 32px; color: var(--acento-cian); font-weight: 700; margin-bottom: 20px; }
+#modal-descripcion { font-size: 15px; margin-bottom: 30px; color: #ccc; }
+
+/* Botones de compra */
+.botones-compra { display: flex; flex-direction: column; gap: 15px; }
+.btn {
+    padding: 12px; border: none; border-radius: 8px;
+    font-size: 16px; font-weight: 600; color: white;
+    cursor: pointer; transition: transform 0.2s; display: flex; justify-content: center; align-items: center; gap: 10px;
+}
+.btn:hover { transform: scale(1.05); /* Efecto de latido al pasar el ratón */ }
+.btn.whatsapp { background-color: var(--boton-wa); }
+.btn.instagram { background: var(--gradiente-ig); }
+
+/* --- RESPONSIVE DESIGN (Para celulares) --- */
+/* Esta regla se activa SOLO cuando la pantalla es menor a 768px (teléfonos y tablets pequeñas) */
+@media (max-width: 768px) {
+    .modal-contenido { flex-direction: column; /* Apila la imagen arriba y el texto abajo */ }
+    .modal-galeria, .modal-info { width: 100%; padding-right: 0; }
+    .modal-galeria { margin-bottom: 20px; }
+}
