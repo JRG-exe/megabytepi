@@ -95,7 +95,7 @@ const inventario = [
     },
     {
         id: 9,
-        nombre: "Reloj Deportivo Laxas Fit",
+        nombre: "Smartwatch LaxasFit",
         precio: "$23.00",
         descripcion: "Smartwatch LAXASFIT modelo H7 equipado con un panel táctil, garantizando alto contraste, colores vibrantes y bajo consumo energético. Su chasis cuadrado de bordes redondeados en acabado oscuro incluye una corona lateral giratoria para la navegación por la interfaz. El dispositivo soporta múltiples carátulas digitales intercambiables, monitorización de actividad física y conectividad inalámbrica. Incluye una base de carga magnética con terminal USB.",
         imagenes: [
